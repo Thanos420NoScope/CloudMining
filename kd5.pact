@@ -159,6 +159,18 @@
       (read clients-table)
       (keys clients-table)))
 
+  ;; Returns the amount owed to an account
+  (defun pendingone (account:string)
+    (at 'balance (read clients-table account ['balance ])))
+
+  ;; Returns the amount owed to the group
+  (defun pendingall ()
+    (coin.get-balance MINER_ACCOUNT))
+
+  ;; Returns the amount owed to the group
+  (defun remainingshares ()
+    (at 'shares (read shares-table "" ['shares ])))
+
 )
 
 ;; ; --------------------------------------------------------------------------
