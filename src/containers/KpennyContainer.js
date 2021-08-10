@@ -50,7 +50,7 @@ const KpennyContainer = ({ data }) => {
     if (!pact.hasWallet()) return 'Set signing method in wallet';
     if (!amount) return 'Enter an amount';
     if (amount > pact.account.balance) return `Insufficient KDA balance`
-    if (amount < 10) return `Minimum buy is 10KDA`
+    if (amount < 5) return `Minimum buy is 5KDA`
     return 'Buy';
   };
 
@@ -76,7 +76,7 @@ const KpennyContainer = ({ data }) => {
       />
     <ColumnContainer >
       <Message style={{ marginBottom: 40, textAlign: "center"}}>
-        <Message.Header>Cloud mining experiment</Message.Header>
+        <Message.Header>Cloud Mining Experiment</Message.Header>
         <br/>
         <Message.Content>
           Buy shares of a miner. Get rewards every pool payout. Never worry about managing the miner.
@@ -86,6 +86,15 @@ const KpennyContainer = ({ data }) => {
         </Message.Content>
         <Message.Content>
           Purchase and rewards are permanent until the KD5 breaks. NO refunds.
+        </Message.Content>
+        <Message.Content>
+          TESTNET. I WILL SEND COINS ONCE IN A WHILE TO SIMULATE POOL PAYMENTS.
+        </Message.Content>
+        <Message.Content>
+          NO PARTICIPATION = NO MAINNET.
+        </Message.Content>
+        <Message.Content>
+          MINIMUM BUY 5KDA
         </Message.Content>
       </Message>
       <FormContainer title="Buy shares"  containerStyle={{ maxWidth: 500 }}>

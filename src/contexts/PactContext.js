@@ -935,7 +935,7 @@ export const PactProvider = (props) => {
           "token1AmountWithSlippage": reduceBalance(token1.amount*(1-parseFloat(slippage)), tokenData[token1.coin].precision)
         },
         signingPubKey: account.guard.keys[0],
-        networkId: "mainnet01",
+        networkId: "testnet04",
       }
       //alert to sign tx
       walletLoading();
@@ -1012,7 +1012,7 @@ export const PactProvider = (props) => {
               onClose: async () => {
                 await toast.dismiss(toastId)
                 await window.open(
-                  `https://explorer.chainweb.com/mainnet/tx/${reqKey}`,
+                  `https://explorer.chainweb.com/testnet/tx/${reqKey}`,
                   "_blank",
                   'noopener,noreferrer'
                 );
@@ -1031,7 +1031,7 @@ export const PactProvider = (props) => {
               onClose: async () => {
                 await toast.dismiss(toastId)
                 await window.open(
-                  `https://explorer.chainweb.com/mainnet/tx/${reqKey}`,
+                  `https://explorer.chainweb.com/testnet/tx/${reqKey}`,
                   "_blank",
                   'noopener,noreferrer'
                 );
@@ -1327,19 +1327,21 @@ const kpennySpreadLocal = async () => {
     const pactCode = `(free.kd5.sendpayment)`
     const cmd = {
         pactCode: pactCode,
-        caps: [
-          Pact.lang.mkCap("Gas capability", "Pay gas", "coin.GAS", []),
-          Pact.lang.mkCap(
-            "transfer capability",
-            "transfer token in",
-            `coin.TRANSFER`,
-            [
-              asicMiner,
-              "temporary-holder",
-              99999
-            ]
-          ),
-        ],
+        keyPairs: {
+          publicKey: account.guard.keys[0],
+          secretKey: privKey,
+          clist: [
+                        {name: "coin.GAS", args: []},
+            { name:
+              `coin.TRANSFER`,
+              args: [
+               asicMiner,
+               "temporary-holder",
+               99999
+              ]
+            },
+          ]
+        },
         keyPairs: {
           publicKey: account.guard.keys[0],
           secretKey: privKey,

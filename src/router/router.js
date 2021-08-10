@@ -24,7 +24,6 @@ export default () => {
   return (
     <Router>
       <Layout>
-        <RedeemGuide/>
         <Switch>
           <Route exact path={ROUTE_INDEX} component={KpennyContainer} />
           <Route exact path={ROUTE_SWAP} component={SwapContainer} />

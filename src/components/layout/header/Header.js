@@ -186,7 +186,7 @@ const Header = () => {
         <Label
           style={{ padding: '10px 16px', color:"white", fontSize: 16 }}
         >
-          Aswap live on chain 3
+          KD5 testing on chain 0
         </Label>
         </Item>
         {pact?.account.account ? (

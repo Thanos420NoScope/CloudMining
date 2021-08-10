@@ -77,7 +77,7 @@ export default function Account(props) {
       <Modal.Content image>
         <Modal.Description>
           <Header style={{ marginBottom: 24 }}>
-            <span style={{ fontSize: 24, fontFamily: 'neue-bold', color: '#3a4750' }}>Your KDA Account (chain 3)</span>
+            <span style={{ fontSize: 24, fontFamily: 'neue-bold', color: '#3a4750' }}>Your KDA Account (chain 0)</span>
           </Header>
           <Input
             placeholder="Enter Account"
@@ -141,7 +141,7 @@ export default function Account(props) {
             <></>
           ) : (
             <Header>
-              <span style={{ color: "red", fontSize: 24, fontFamily: 'neue-bold' }}>Account Does Not Exist (Send KDA to Chain 3)</span>
+              <span style={{ color: "red", fontSize: 24, fontFamily: 'neue-bold' }}>Account Does Not Exist (Send KDA to Testnet Chain 0)</span>
             </Header>
           )}
           <div style={{ opacity: pact?.account?.account ? 1 : 0.3, marginTop: 30, marginBottom: 30 }}>
