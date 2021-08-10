@@ -1,0 +1,12 @@
+{
+  "coin:free.anedak": {
+    "name": "coin:free.anedak",
+    "token0": "KDA",
+    "token1": "ADK"
+  },
+  "coin:runonflux.flux": {
+    "name": "coin:runonflux.flux",
+    "token0": "KDA",
+    "token1": "FLUX"
+  }
+}
