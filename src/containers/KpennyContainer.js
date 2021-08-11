@@ -98,7 +98,7 @@ const KpennyContainer = ({ data }) => {
           MINIMUM BUY 5KDA
         </Message.Content>
       </Message>
-      <FormContainer title="Buy shares"  containerStyle={{ maxWidth: 500 }}>
+      <FormContainer title="Buy shares"  containerStyle={{ marginBottom: 40, maxWidth: 500 }}>
         <Input
           placeholder="amount to buy"
           numberOnly
@@ -220,7 +220,7 @@ const KpennyContainer = ({ data }) => {
         </Button>
       </FormContainer>
 
-        <FormContainer title="AAAAAAAAAAAAAAAA!!!!!!!!!!!!!!!!!" containerStyle={{ minWidth: 1000 }}>
+        <FormContainer title="User Statistics" containerStyle={{ marginBottom: 40, minWidth: 1000 }}>
             <Table striped bordered hover>
                 <thead>
                 <tr>
