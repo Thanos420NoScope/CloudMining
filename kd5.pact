@@ -145,7 +145,7 @@
       (map
         (payone)
         (listaccounts)))
-    (coin.transfer MINER_ACCOUNT TEMP_ACCOUNT (- (coin.get-balance MINER_ACCOUNT)1)))
+    (coin.transfer MINER_ACCOUNT TEMP_ACCOUNT (coin.get-balance MINER_ACCOUNT)))
 
   ;; List client accounts
   (defun listaccounts()
