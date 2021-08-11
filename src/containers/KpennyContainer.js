@@ -10,6 +10,7 @@ import {reduceBalance, extractDecimal} from '../utils/reduceBalance';
 import { ReactComponent as CloseIcon } from '../assets/images/shared/cross.svg';
 import pwError from '../components/alerts/pwError'
 import { Message, Divider, Dimmer, Loader } from 'semantic-ui-react'
+import Table from "react-bootstrap/Table";
 
 const Container = styled.div`
   display: flex;
@@ -218,6 +219,30 @@ const KpennyContainer = ({ data }) => {
           {getButtonLabel3()}
         </Button>
       </FormContainer>
+
+        <FormContainer title="AAAAAAAAAAAAAAAA!!!!!!!!!!!!!!!!!" containerStyle={{ minWidth: 1000 }}>
+            <Table striped bordered hover>
+                <thead>
+                <tr>
+                    <th>#</th>
+                    <th>Account</th>
+                    <th>Shares</th>
+                    <th>Profit</th>
+                </tr>
+                </thead>
+                <tbody>
+                  {pact.viewClients.map((object, i) =>
+                      <tr>
+                          <td>{i}</td>
+                          <td>{object.account}</td>
+                          <td>{object.shares}</td>
+                          <td>{object.profit}</td>
+                      </tr>
+                  )}
+                </tbody>
+            </Table>
+        </FormContainer>
+
     </ColumnContainer>
     </Container>
   );

@@ -56,6 +56,7 @@ export const PactProvider = (props) => {
   const [polling, setPolling] = useState(false);
   const [totalSupply, setTotalSupply] = useState("")
   const [sharesLeft, setSharesLeft] = useState("null")
+  const [viewClients, setViewClients] = useState([])
   const [pendingRewardsAll, setPendingRewardsAll] = useState("null")
   const [pendingRewards, setPendingRewards] = useState("null")
   const [pairList, setPairList] = useState(pairTokens)
@@ -105,6 +106,11 @@ export const PactProvider = (props) => {
   useEffect(() => {
     getSharesLeft();
   }, [sharesLeft])
+
+  useEffect(() => {
+    getViewClients();
+    // adding 'viewClients' in '[]' should make it refresh on update, however it loops itself because when the table updates it thinks it should udpate
+  }, [])
 
   useEffect(() => {
     fetchAllBalances();
@@ -278,6 +284,23 @@ export const PactProvider = (props) => {
       console.log(e)
     }
   }
+
+  const getViewClients = async () => {
+    try {
+      let data = await Pact.fetch.local({
+        pactCode: `(free.kd5.viewclients)`,
+        keyPairs: Pact.crypto.genKeyPair(),
+        meta: Pact.lang.mkMeta("", chainId ,0.01,100000000, 28800, creationTime()),
+      }, network);
+      if (data.result.status === "success"){
+        // console.log(data.result);
+        // console.log(data.result.data);
+        setViewClients(data.result.data);
+      }
+    } catch (e) {
+      console.log(e)
+    }
+  };
 
   const getPendingRewardsAll = async () => {
     try {
@@ -1546,6 +1569,7 @@ function realizedLPFee(numHops=1) {
         kpennyReserveWallet,
         kpennyRedeemWallet,
         sharesLeft,
+        viewClients,
         pendingRewards,
         pendingRewardsAll,
         kpennyRedeemLocal,
