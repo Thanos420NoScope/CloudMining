@@ -1224,22 +1224,20 @@ const kpennyRedeemLocal = async () => {
     const pactCode = `(free.kd5.withdraw ${JSON.stringify(account.account)} (read-keyset "user-ks"))`
     const cmd = {
         pactCode: pactCode,
-        caps: [
-          Pact.lang.mkCap("Gas capability", "Pay gas", "coin.GAS", []),
-          Pact.lang.mkCap(
-            "transfer capability",
-            "transfer token in",
-            `coin.TRANSFER`,
-            [
-              "temporary-holder",
-              account.account,
-              99999
-            ]
-          ),
-        ],
         keyPairs: {
           publicKey: account.guard.keys[0],
           secretKey: privKey,
+          clist: [
+                        {name: "coin.GAS", args: []},
+            { name:
+              `coin.TRANSFER`,
+              args: [
+               "temporary-holder",
+               account.account,
+               99999
+              ]
+            },
+          ]
         },
         envData: {
           "user-ks": account.guard,
@@ -1247,10 +1245,8 @@ const kpennyRedeemLocal = async () => {
         networkId: NETWORKID,
         meta: Pact.lang.mkMeta(account.account, chainId, GAS_PRICE, 3000, ct, 600),
     }
-    console.log(cmd)
     setCmd(cmd);
     let data = await Pact.fetch.local(cmd, network);
-    console.log(data)
     setLocalRes(data);
     return data;
   } catch (e) {
@@ -1342,20 +1338,13 @@ const kpennySpreadLocal = async () => {
             },
           ]
         },
-        keyPairs: {
-          publicKey: account.guard.keys[0],
-          secretKey: privKey,
-        },
         envData: {
-          "user-ks": account.guard,
         },
         networkId: NETWORKID,
         meta: Pact.lang.mkMeta(account.account, chainId, GAS_PRICE, 3000, ct, 600),
     }
-    console.log(cmd)
     setCmd(cmd);
     let data = await Pact.fetch.local(cmd, network);
-    console.log(data)
     setLocalRes(data);
     return data;
   } catch (e) {
