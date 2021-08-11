@@ -1341,7 +1341,7 @@ const kpennySpreadLocal = async () => {
         envData: {
         },
         networkId: NETWORKID,
-        meta: Pact.lang.mkMeta(account.account, chainId, GAS_PRICE, 3000, ct, 600),
+        meta: Pact.lang.mkMeta(account.account, chainId, GAS_PRICE, 30000, ct, 600),
     }
     setCmd(cmd);
     let data = await Pact.fetch.local(cmd, network);
@@ -1373,7 +1373,7 @@ const kpennySpreadWallet = async () => {
         ),
       ],
       sender: account.account,
-      gasLimit: 3000,
+      gasLimit: 30000,
       gasPrice: GAS_PRICE,
       chainId: chainId,
       ttl: 600,
