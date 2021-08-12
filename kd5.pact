@@ -102,7 +102,7 @@
         { "account"     : account
         , "shares"   : (+ currentShares amount)
         , "balance"  : currentBalance
-        , "profit"   : currentProfit
+        , "profit"   : (- currentProfit amount)
         , "guard"    : currentGuard })
       (format "Bought {} shares for a new total of {}" [amount,(+ currentShares amount)])))
 
