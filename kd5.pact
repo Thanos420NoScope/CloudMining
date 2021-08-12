@@ -45,13 +45,11 @@
   (defconst TEMP_ACCOUNT:string 'temporary-holder
     " Account holding distributed funds until withdraw. ")
 
-  (defconst TOTAL_SHARES 26875.0
-    " Specifies the value in KDA of the KD5 at the time of the contract creation. \
-    \ ($ASIC)10750 / ($KDA)0.4 = (KDA)26875 ")
+  (defconst TOTAL_SHARES 25000.0
+    " Specifies the value in KDA of the KD5 at the time of the contract creation. ")
 
-  (defconst SHARES_FOR_SALE 8868.75
-    " Specifies the amount of shares the owner is willing to sell. \
-    \ 26875.0 x 33% = 8868.75")
+  (defconst SHARES_FOR_SALE 12500.0
+    " Specifies the amount of shares the owner is willing to sell (50%). ")
 
 ;; --------------------------------------------------------------------------
 ;; Functions
@@ -104,7 +102,7 @@
         { "account"     : account
         , "shares"   : (+ currentShares amount)
         , "balance"  : currentBalance
-        , "profit"   : (- currentProfit amount)
+        , "profit"   : currentProfit
         , "guard"    : currentGuard })
       (format "Bought {} shares for a new total of {}" [amount,(+ currentShares amount)])))
 
