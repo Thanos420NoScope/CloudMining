@@ -22,13 +22,13 @@ const savedNetwork = localStorage.getItem('network');
 const savedSlippage = localStorage.getItem('slippage');
 const savedSigning = localStorage.getItem('signing');
 const savedTtl = localStorage.getItem('ttl');
-const chainId = "0";
+const chainId = "1";
 const asicOwner = "017749fc26f8bf8b5a67204ad9d38b75999da983096f16d18a77af86cba41f4a";
 const asicMiner = "8ddefd2849d7f93c3674da51a88392e3c19cf2e6567f0003552320146de4e926";
 const PRECISION = 12;
-const NETWORKID = "testnet04";
+const NETWORKID = "mainnet01";
 const FEE = 0.003
-const network = `https://api.testnet.chainweb.com/chainweb/0.0/testnet04/chain/${chainId}/pact`;
+const network = `https://api.chainweb.com/chainweb/0.0/mainnet01/chain/${chainId}/pact`;
 
 const creationTime = () => Math.round((new Date).getTime()/1000)-10;
 const GAS_PRICE = 0.000000000001;
@@ -958,7 +958,7 @@ export const PactProvider = (props) => {
           "token1AmountWithSlippage": reduceBalance(token1.amount*(1-parseFloat(slippage)), tokenData[token1.coin].precision)
         },
         signingPubKey: account.guard.keys[0],
-        networkId: "testnet04",
+        networkId: "mainnet01",
       }
       //alert to sign tx
       walletLoading();
@@ -1035,7 +1035,7 @@ export const PactProvider = (props) => {
               onClose: async () => {
                 await toast.dismiss(toastId)
                 await window.open(
-                  `https://explorer.chainweb.com/testnet/tx/${reqKey}`,
+                  `https://explorer.chainweb.com/mainnet/tx/${reqKey}`,
                   "_blank",
                   'noopener,noreferrer'
                 );
@@ -1054,7 +1054,7 @@ export const PactProvider = (props) => {
               onClose: async () => {
                 await toast.dismiss(toastId)
                 await window.open(
-                  `https://explorer.chainweb.com/testnet/tx/${reqKey}`,
+                  `https://explorer.chainweb.com/mainnet/tx/${reqKey}`,
                   "_blank",
                   'noopener,noreferrer'
                 );
