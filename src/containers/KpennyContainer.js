@@ -228,6 +228,7 @@ const KpennyContainer = ({ data }) => {
                     <th>Account</th>
                     <th>Shares</th>
                     <th>Profit</th>
+                    <th>Balance</th>
                 </tr>
                 </thead>
                 <tbody>
@@ -236,7 +237,8 @@ const KpennyContainer = ({ data }) => {
                           <td>{i}</td>
                           <td>{object.account}</td>
                           <td>{object.shares}</td>
-                          <td>{object.profit}</td>
+                          <td>{typeof (object.profit) === "number" ? object.profit : object.profit.decimal}</td>
+                          <td>{typeof (object.balance) === "number" ? object.balance : object.balance.decimal}</td>
                       </tr>
                   )}
                 </tbody>
