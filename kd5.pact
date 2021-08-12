@@ -134,28 +134,21 @@
         { "balance"  := currentBalance
         , "shares"   := userShares }
         (update clients-table account
-          { "balance"  : (+ (round (* (/ userShares TOTAL_SHARES) (coin.get-balance MINER_ACCOUNT))12) currentBalance) }))
-  )
+          { "balance"  : (+ (round (* (/ userShares TOTAL_SHARES) (coin.get-balance MINER_ACCOUNT))12) currentBalance) })))
 
   ;; Execute the payone function to all accounts in the table
   (defun sendpayment()
     (with-capability (MOVE_FUNDS)
-      (map
-        (payone)
-        (listaccounts)))
-    (coin.transfer MINER_ACCOUNT TEMP_ACCOUNT (coin.get-balance MINER_ACCOUNT)))
+      (map (payone)(listaccounts)))
+    (coin.transfer MINER_ACCOUNT TEMP_ACCOUNT (- (coin.get-balance MINER_ACCOUNT)1)))
 
   ;; List client accounts
   (defun listaccounts()
-    (map
-      (at 'account )
-      (viewclients)))
+    (sort ['shares] (map (at 'account) (viewclients))))
 
   ;; Returns a list of all clients and their infos
   (defun viewclients ()
-    (map
-      (read clients-table)
-      (keys clients-table)))
+    (map (read clients-table) (keys clients-table)))
 
   ;; Returns the amount owed to an account
   (defun pendingone (account:string)
@@ -167,9 +160,7 @@
 
   ;; Returns the amount owed to the group
   (defun remainingshares ()
-    (at 'shares (read shares-table "" ['shares ])))
-
-)
+    (at 'shares (read shares-table "" ['shares ]))))
 
 ;; ; --------------------------------------------------------------------------
 ;; ; Create tables outside of the module
