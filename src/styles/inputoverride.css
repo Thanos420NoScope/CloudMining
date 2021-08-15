@@ -14,3 +14,7 @@
     border-color: #c56cf0;
     background: #fff;
 }
+
+tbody tr:nth-child(odd){
+    background-color: #ebebeb;
+}

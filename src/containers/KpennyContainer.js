@@ -11,6 +11,7 @@ import { ReactComponent as CloseIcon } from '../assets/images/shared/cross.svg';
 import pwError from '../components/alerts/pwError'
 import { Message, Divider, Dimmer, Loader } from 'semantic-ui-react'
 import Table from "react-bootstrap/Table";
+import '../styles/inputoverride.css';
 
 const Container = styled.div`
   display: flex;
@@ -220,7 +221,12 @@ const KpennyContainer = ({ data }) => {
         </Button>
       </FormContainer>
 
-        <FormContainer title="User Statistics" containerStyle={{ marginBottom: 40, minWidth: 1000 }}>
+        <FormContainer title="User Statistics" containerStyle={{ 
+            marginBottom: 50, 
+            minWidth: 1000,
+            overflowY: 'scroll',
+            maxHeight: 600
+          }}>
             <Table striped bordered hover>
                 <thead>
                 <tr>
