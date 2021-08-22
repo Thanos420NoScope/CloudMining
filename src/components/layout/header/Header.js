@@ -186,7 +186,7 @@ const Header = () => {
         <Label
           style={{ padding: '10px 16px', color:"white", fontSize: 16 }}
         >
-          KD5 live on chain 1
+          KD5 live on chain 0
         </Label>
         </Item>
         {pact?.account.account ? (

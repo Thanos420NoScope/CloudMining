@@ -81,22 +81,22 @@ const KpennyContainer = ({ data }) => {
         <Message.Header>Cloud Mining Experiment</Message.Header>
         <br/>
         <Message.Content>
-          Buy shares of a miner. Get rewards every pool payout. Never worry about managing the miner.
+          Buy shares of a set of 2 KD5 miners. Get rewards every pool payout. Never worry about managing it.
         </Message.Content>
         <Message.Content>
-          The price is measured based on the miner cost and an approximation of electricity cost over the KD5 lifetime.
+          The price is measured based on the miners cost and an approximation of electricity cost over 2 years.
         </Message.Content>
         <Message.Content>
-          Purchase and rewards are permanent until the KD5 breaks. NO refunds.
+          2x$11,000+$5000power / $27k KDA@0.75 / 35,000 shares
         </Message.Content>
         <Message.Content>
-          TESTNET. I WILL SEND COINS ONCE IN A WHILE TO SIMULATE POOL PAYMENTS.
+          The contract is valid for 2 years or until the KD5s breaks. NO refunds.
         </Message.Content>
         <Message.Content>
-          NO PARTICIPATION = NO MAINNET.
+          This may or may not be better than holding your KDA.
         </Message.Content>
         <Message.Content>
-          MINIMUM BUY 5KDA
+          MINIMUM BUY 10KDA
         </Message.Content>
       </Message>
       <FormContainer title="Buy shares"  containerStyle={{ marginBottom: 40, maxWidth: 500 }}>
@@ -119,7 +119,7 @@ const KpennyContainer = ({ data }) => {
          </RowContainer>
          <RowContainer>
            <Label>Total Shares</Label>
-           <span>26875</span>
+           <span>35000</span>
          </RowContainer>
        </>
         {(getButtonLabel() === "Buy"
