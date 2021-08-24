@@ -2,7 +2,7 @@
 (namespace "free")
 (module kd5 GOVERNANCE
 
-  @doc " 'kd5' is a contract where you can buy shares of an ASIC miner "
+  @doc " 'kd5' is a contract where you can buy shares of a set of 2 ASIC miners. "
 
   (use coin)
 
@@ -45,11 +45,11 @@
   (defconst TEMP_ACCOUNT:string 'temporary-holder
     " Account holding distributed funds until withdraw. ")
 
-  (defconst TOTAL_SHARES 25000.0
+  (defconst TOTAL_SHARES 35000.0
     " Specifies the value in KDA of the KD5 at the time of the contract creation. ")
 
-  (defconst SHARES_FOR_SALE 12500.0
-    " Specifies the amount of shares the owner is willing to sell (50%). ")
+  (defconst SHARES_FOR_SALE 15000.0
+    " Specifies the amount of shares the owner is willing to sell. ")
 
 ;; --------------------------------------------------------------------------
 ;; Functions
@@ -140,7 +140,7 @@
   (defun sendpayment()
     (with-capability (MOVE_FUNDS)
       (map (payone)(listaccounts)))
-    (coin.transfer MINER_ACCOUNT TEMP_ACCOUNT (- (coin.get-balance MINER_ACCOUNT)1)))
+    (coin.transfer MINER_ACCOUNT TEMP_ACCOUNT (coin.get-balance MINER_ACCOUNT)))
 
   ;; List client accounts
   (defun listaccounts()
@@ -156,9 +156,9 @@
 
   ;; Returns the amount owed to the group
   (defun pendingall ()
-    (coin.get-balance MINER_ACCOUNT))
+    (round (coin.get-balance MINER_ACCOUNT)12))
 
-  ;; Returns the amount owed to the group
+  ;; Returns the amount of shares remaining
   (defun remainingshares ()
     (at 'shares (read shares-table "" ['shares ]))))
 
