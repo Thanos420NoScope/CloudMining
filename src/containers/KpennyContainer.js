@@ -52,7 +52,7 @@ const KpennyContainer = ({ data }) => {
     if (!pact.hasWallet()) return 'Set signing method in wallet';
     if (!amount) return 'Enter an amount';
     if (amount > pact.account.balance) return `Insufficient KDA balance`
-    if (amount < 5) return `Minimum buy is 5KDA`
+    if (amount < 10) return `Minimum buy is 5KDA`
     return 'Buy';
   };
 
@@ -81,7 +81,7 @@ const KpennyContainer = ({ data }) => {
         <Message.Header>Cloud Mining Experiment</Message.Header>
         <br/>
         <Message.Content>
-          Buy shares of a set of 2 KD5 miners. Get rewards every pool payout. Never worry about managing it.
+          Buy shares of a set of 2 KD5 miners. Get rewards every pool payout. Never worry about managing them.
         </Message.Content>
         <Message.Content>
           The price is measured based on the miners cost and an approximation of electricity cost over 2 years.
@@ -93,10 +93,10 @@ const KpennyContainer = ({ data }) => {
           The contract is valid for 2 years or until the KD5s breaks. NO refunds.
         </Message.Content>
         <Message.Content>
-          This may or may not be better than holding your KDA.
+          This may or may not be better than holding KDA.
         </Message.Content>
         <Message.Content>
-          MINIMUM BUY 10KDA
+          MINIMUM BUY 10KDA <a href="https://poolflare.com/coin/kda/miner/8ddefd2849d7f93c3674da51a88392e3c19cf2e6567f0003552320146de4e926" target="_blank" rel="noopener noreferrer">Pool Link</a>
         </Message.Content>
       </Message>
       <FormContainer title="Buy shares"  containerStyle={{ marginBottom: 40, maxWidth: 500 }}>
