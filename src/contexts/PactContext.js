@@ -31,7 +31,7 @@ const FEE = 0.003
 const network = `https://api.chainweb.com/chainweb/0.0/mainnet01/chain/${chainId}/pact`;
 
 const creationTime = () => Math.round((new Date).getTime()/1000)-10;
-const GAS_PRICE = 0.000000000001;
+const GAS_PRICE = 0.00000001;
 
 export const PactProvider = (props) => {
   const notificationContext = useContext(NotificationContext);
